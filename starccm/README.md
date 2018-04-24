@@ -33,3 +33,17 @@ singularity exec \
 	-load singleRow.sim
 ```
 where the ssh-wrapper script is downloaded from this repository.
+
+STARCCM++ on base
+kerberos, X-win32, putty, module load, starccm gui...
+
+singularity exec /data/singularity/starccm/ /opt/CD-adapco/12.06.010-R8/STAR-View+12.06.010/bin/starview+
+xkbcommon: ERROR: failed to add default include path /usr/share/X11/xkb
+Qt: Failed to create XKB context!
+Use QT_XKB_CONFIG_ROOT environmental variable to provide an additional search path, add ':' as separator to provide several search paths and/or make sure that XKB configuration data directory contains recent enough contents, to update please see http://cgit.freedesktop.org/xkeyboard-config/ .
+
+libGL error: unable to load driver: swrast_dri.so
+libGL error: failed to load driver: swrast
+Unrecognized OpenGL version
+Unrecognized OpenGL version
+
