@@ -1,11 +1,24 @@
 ## These build files can be built with the following command:
- ``` singularity build (container image name) (container build file)``` 
-example: ```singularity build matlab singularitybuild_matlab```
+```
+singularity build (container image name) (container build file)
+``` 
 
-This will provide an container image ready to be run and used
+For example:
+```
+singularity build matlab.simg matlab/MCRv90-R2015b.build
+```
 
-## A similar command is to build from a dockerhub container 
-```singularity build (container image name) docker://(dockerhub location)```
-For example to build a jupyter minimal-notebook container run the following ```singularity build jupyter_minimal.img docker://jupyter/minimal-notebook```
+This will provide an container image ready to be run and used.  
 
-This can be used to build a local singularity image for a docker container.
+### Note:
+Some build files will require local files to be available or access to restricted systems.  Please check comments in each build file for any pre-requisite steps for build.
+
+## You can also build directly from a dockerhub container 
+```
+singularity build (container image name) docker://(dockerhub location)
+```
+
+For example to build a jupyter minimal-notebook container run the following:
+```
+singularity build jupyter_minimal.simg docker://jupyter/minimal-notebook
+```
