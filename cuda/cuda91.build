@@ -5,6 +5,10 @@ From:nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
 	echo "# singularity nvidia libs when run in --nv
 /.singularity.d/libs/" >> ${SINGULARITY_ROOTFS}/etc/ld.so.conf.d/singularity-nv.conf
 
+%environment
+	PATH=/opt/anaconda3/bin/:$PATH
+	CUDA_HOME=/usr/local/cuda-9.1/
+
 %post 
 	apt update
 	apt install -y \
@@ -21,12 +25,8 @@ From:nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
 	bash ~/anaconda.sh -b -p /opt/anaconda3
 
 	export CMAKE_PREFIX_PATH=/opt/anaconda3
-        export TORCH_CUDA_ARCH_LIST="5.2+PTX;6.0;6.1"
-        #export TORCH_CUDA_ARCH_LIST="3.0;3.5;5.0;5.2+PTX;6.0;6.1" (all arhitectures)
 	export CUDA_HOME=/usr/local/cuda-9.1/ 
-
-	ln -s /opt/anaconda3/bin/conda /usr/bin/conda
-	ln -s /opt/anaconda3/bin/python /usr/bin/python
+	export PATH=/opt/anaconda3/bin/:$PATH
 
 	conda update -y -n base conda
 	conda install -y \
@@ -39,8 +39,3 @@ From:nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
 		cffi \
 		typing
 
-	
-#git clone --recursive https://github.com/pytorch/pytorch
-#conda install -y -c pytorch magma-cuda91
-#cd pytorch
-#python setup.py install
